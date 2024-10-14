@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "bc3ba79e-b6ef-4c09-bbeb-a1435f545e7f",
+		"name": "bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38423336"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\": 1,\n    \"eventCode\": \"869F2CONFERENCE202410140813P-RB\",\n    \"numberOfTickets\": 2,\n    \"ticketType\": \"REGULAR\",\n    \"bookingType\":\"ONLINE\",\n    \"reserveForMinutes\":60,\n    \"username\":\"email@gmail.com\",\n    \"fullName\":\"Nabeel Bhatti\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/rakbank/event-booking-service/rest/api/v1/bookings"
+			},
+			"response": [
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventId\": 1,\n    \"eventCode\": \"EVENT123\",\n    \"numberOfTickets\": 2,\n    \"ticketType\": \"REGULAR\",\n    \"bookingType\":\"ONLINE\",\n    \"reserveForMinutes\":60\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 09 Oct 2024 09:57:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"createdDate\": \"2024-10-09T14:57:39.357231\",\n    \"updatedDate\": \"2024-10-09T14:57:39.357231\",\n    \"version\": 0,\n    \"eventId\": 1,\n    \"bookingCode\": \"f46a-20241009145739-EVENT123\",\n    \"bookingType\": \"ONLINE\",\n    \"status\": \"PENDING\",\n    \"paymentStatus\": \"UNPAID\",\n    \"invalidAfter\": \"2024-10-09T15:57:39.3562346\"\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventId\": 1,\n    \"eventCode\": \"\",\n    \"numberOfTickets\": 2,\n    \"ticketType\": \"REGULAR\",\n    \"bookingType\":\"ONLINE\",\n    \"reserveForMinutes\":60\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:16:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings\",\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"detail\": \"eventCode: Event code is missing\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings\"\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"eventId\": 1,\n    \"eventCode\": \"8D42DCONFERENCE202410101108P\",\n    \"numberOfTickets\": 2,\n    \"ticketType\": \"REGULAR\",\n    \"bookingType\":\"ONLINE\",\n    \"reserveForMinutes\":60\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 06:25:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings\",\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"detail\": \"Event is not present please try again shortly\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get booking with tickets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": "http://localhost:8080/rakbank/event-booking-service/rest/api/v1/bookings/1/with/tickets"
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:26:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1\",\n    \"title\": \"Not Found\",\n    \"status\": 404,\n    \"detail\": \"booking not found with id1\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings/1\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1/with/tickets"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:48:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"bookingId\": 1,\n    \"eventId\": 1,\n    \"status\": \"PENDING\",\n    \"paymentStatus\": \"UNPAID\",\n    \"bookingDate\": \"2024-10-10T08:48:16.939101\",\n    \"numberOfTickets\": 2,\n    \"tickets\": [\n        {\n            \"ticketNumber\": \"CF2C6EVENT12320241010084816REG1\",\n            \"ticketType\": \"REGULAR\"\n        },\n        {\n            \"ticketNumber\": \"FB380EVENT12320241010084816REG1\",\n            \"ticketType\": \"REGULAR\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": "http://localhost:8080/rakbank/event-booking-service/rest/api/v1/bookings/1"
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:26:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1\",\n    \"title\": \"Not Found\",\n    \"status\": 404,\n    \"detail\": \"booking not found with id1\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings/1\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:27:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdDate\": \"2024-10-10T08:27:35.101922\",\n    \"updatedDate\": \"2024-10-10T08:27:35.101922\",\n    \"version\": 0,\n    \"eventId\": 1,\n    \"bookingCode\": \"3653-20241010082735-EVENT123\",\n    \"eventCode\": \"EVENT123\",\n    \"bookingType\": \"ONLINE\",\n    \"status\": \"PENDING\",\n    \"paymentStatus\": \"UNPAID\",\n    \"invalidAfter\": \"2024-10-10T09:27:35.023982\"\n}"
+				}
+			]
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"CANCELED\",\r\n    \"bookingType\":\"OFFLINE\",\r\n    \"reserveForMinutes\":60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/rakbank/event-booking-service/rest/api/v1/bookings/3"
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:26:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1\",\n    \"title\": \"Not Found\",\n    \"status\": 404,\n    \"detail\": \"booking not found with id1\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings/1\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"CANCELED\",\r\n    \"bookingType\":\"ONLINE\",\r\n    \"reserveForMinutes\":60\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 04:16:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdDate\": \"2024-10-10T09:15:51.407171\",\n    \"updatedDate\": \"2024-10-10T09:16:00.790213\",\n    \"version\": 1,\n    \"eventId\": 1,\n    \"bookingCode\": \"a66a-20241010091551-EVENT123\",\n    \"eventCode\": \"EVENT123\",\n    \"bookingType\": \"ONLINE\",\n    \"status\": \"CANCELED\",\n    \"paymentStatus\": \"UNPAID\",\n    \"invalidAfter\": \"2024-10-10T10:15:51.342145\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get/{id}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": "http://localhost:8080/rakbank/event-booking-service/rest/api/v1/bookings/1"
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:26:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1\",\n    \"title\": \"Not Found\",\n    \"status\": 404,\n    \"detail\": \"booking not found with id1\",\n    \"instance\": \"/rakbank/event-booking-service/rest/api/v1/bookings/1\"\n}"
+				},
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": "http://localhost:9091/rakbank/event-booking-service/rest/api/v1/bookings/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 03:27:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdDate\": \"2024-10-10T08:27:35.101922\",\n    \"updatedDate\": \"2024-10-10T08:27:35.101922\",\n    \"version\": 0,\n    \"eventId\": 1,\n    \"bookingCode\": \"3653-20241010082735-EVENT123\",\n    \"eventCode\": \"EVENT123\",\n    \"bookingType\": \"ONLINE\",\n    \"status\": \"PENDING\",\n    \"paymentStatus\": \"UNPAID\",\n    \"invalidAfter\": \"2024-10-10T09:27:35.023982\"\n}"
+				}
+			]
+		}
+	]
+}
