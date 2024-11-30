@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "234477e0-6218-49c5-a646-dbd500adb064",
+		"name": "pruchases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38423336"
+	},
+	"item": [
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/rakbank/event-payment-service/rest/api/v1/purchases"
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9093/rakbank/event-payment-service/rest/api/v1/purchases"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 09:37:15 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"createdDate\": \"2024-10-10T14:37:00.143167\",\n        \"updatedDate\": \"2024-10-10T14:37:00.144045\",\n        \"version\": 0,\n        \"purchaseCode\": \"b3bf5e9a-f2a8-4b6b-8ef5-db2f9da296f2\",\n        \"customerId\": 1,\n        \"bookingCode\": \"9aee-20241010143659-F0B3FCONFERENCE202410101432P-RB\",\n        \"eventCode\": \"F0B3FCONFERENCE202410101432P-RB\",\n        \"paymentStatus\": \"UNPAID\",\n        \"purchaseDate\": \"2024-10-10T14:37:00.076485\",\n        \"totalAmount\": 100,\n        \"transactions\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "pay",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Idempotency-Key",
+						"value": "kjndwkjbwbhfkjhbelwedddde"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cardNumber\": \"4111111111111111\",\n    \"expirationMonth\": 12,\n    \"expirationYear\": 2025,\n    \"cvv\": \"123\",\n    \"amount\": 100.50,\n    \"currency\": \"USD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rakbank/event-payment-service/rest/api/v1/purchases/pay?bookingCode=a99c-20241012175153-D6316CONFERENCE202410121742P-RB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rakbank",
+						"event-payment-service",
+						"rest",
+						"api",
+						"v1",
+						"purchases",
+						"pay"
+					],
+					"query": [
+						{
+							"key": "bookingCode",
+							"value": "a99c-20241012175153-D6316CONFERENCE202410121742P-RB"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Idempotency-Key",
+								"value": "kjndwkjbwbhfkjhbelweddddee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cardNumber\": \"4111111111111111\",\n    \"expirationMonth\": 12,\n    \"expirationYear\": 2025,\n    \"cvv\": \"123\",\n    \"amount\": 100.50,\n    \"currency\": \"USD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9093/rakbank/event-payment-service/rest/api/v1/purchases/pay?bookingCode=711f-20241010180648-3779DCONFERENCE202410101803P-RB",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"rakbank",
+								"event-payment-service",
+								"rest",
+								"api",
+								"v1",
+								"purchases",
+								"pay"
+							],
+							"query": [
+								{
+									"key": "bookingCode",
+									"value": "711f-20241010180648-3779DCONFERENCE202410101803P-RB"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Oct 2024 13:07:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"createdDate\": \"2024-10-10T18:06:49.105475\",\n    \"updatedDate\": \"2024-10-10T18:07:04.940959\",\n    \"version\": 1,\n    \"purchaseCode\": \"cd3f6170-51ef-48f6-a267-1c1ecefe7b6b\",\n    \"customerId\": 1,\n    \"bookingCode\": \"711f-20241010180648-3779DCONFERENCE202410101803P-RB\",\n    \"eventCode\": \"3779DCONFERENCE202410101803P-RB\",\n    \"paymentStatus\": \"PAID\",\n    \"purchaseDate\": \"2024-10-10T18:07:04.7157592\",\n    \"totalAmount\": 100,\n    \"transactions\": [\n        {\n            \"id\": 1,\n            \"createdDate\": \"2024-10-10T18:07:04.917968\",\n            \"updatedDate\": \"2024-10-10T18:07:04.917968\",\n            \"version\": 0,\n            \"transactionCode\": \"6977d136-0dee-4b2c-95a5-1ebea6468bd9\",\n            \"transactionType\": \"PAYMENT\",\n            \"amount\": 100,\n            \"transactionStatus\": \"SUCCESS\"\n        },\n        {\n            \"id\": 1,\n            \"createdDate\": \"2024-10-10T18:07:04.917968\",\n            \"updatedDate\": \"2024-10-10T18:07:04.917968\",\n            \"version\": 0,\n            \"transactionCode\": \"6977d136-0dee-4b2c-95a5-1ebea6468bd9\",\n            \"transactionType\": \"PAYMENT\",\n            \"amount\": 100,\n            \"transactionStatus\": \"SUCCESS\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/rakbank/event-payment-service/rest/api/v1/purchases/1"
+			},
+			"response": [
+				{
+					"name": "404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9093/rakbank/event-payment-service/rest/api/v1/purchases/1"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/problem+json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 12 Oct 2024 11:37:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"http://localhost:9093/rakbank/event-payment-service/rest/api/v1/purchases/9\",\n    \"title\": \"Not Found\",\n    \"status\": 404,\n    \"detail\": \"payment for 9 not found\",\n    \"instance\": \"/rakbank/event-payment-service/rest/api/v1/purchases/9\"\n}"
+				}
+			]
+		}
+	]
+}

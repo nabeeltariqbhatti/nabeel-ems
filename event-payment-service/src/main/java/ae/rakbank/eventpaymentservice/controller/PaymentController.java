@@ -20,6 +20,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.errors.ResourceNotFoundException;
+import org.springframework.boot.jdbc.metadata.DataSourcePoolMetadataProvider;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataAccessResourceFailureException;
 import org.springframework.http.HttpStatus;
@@ -54,7 +55,6 @@ public class PaymentController {
             recover = "recover",
             backoff = @Backoff(delay = 2000)
     )
-    @CircuitBreaker(name = "payment")
     @Operation(summary = "Make a payment for a booking",
             description = "This API endpoint allows a user to make a payment for an existing booking by providing a booking code and payment details.")
     @ApiResponses(value = {
@@ -67,6 +67,7 @@ public class PaymentController {
     public ResponseEntity<?> paymentForBooking(@RequestParam String bookingCode,
                                                @Valid @RequestBody PaymentRequest paymentRequest,
                                                @RequestHeader(name = "Idempotency-Key") String idempotencyKey) {
+        
         BookingEvent bookingEvent = EventCache.getEvent(bookingCode);
         if (bookingEvent == null) {
             throw new RetryLaterException("Please try later");
